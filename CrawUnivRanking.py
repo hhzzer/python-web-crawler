@@ -22,10 +22,11 @@ def fillUnivList(html,ulist):
           ulist.append([tds[0].string,tds[2].string,tds[5].string])
 
 def printUnivList(ulist,num):
-    print("{:^10}\t{:^10}\t{:^10}".format("排名","学校","分数"))
+    tplt = "{0:^10}\t{1:{3}^10}\t{2:^10}"
+    print(tplt.format("排名","学校","分数",chr(12288)))
     for i in range(num):
         u = ulist[i]
-        print("{:^10}\t{:^10}\t{:^10}".format(u[0],u[1],u[2]))
+        print(tplt.format(u[0],u[1],u[2],chr(12288)))
 
 def main():
     uinfo = []
