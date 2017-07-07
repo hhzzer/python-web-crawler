@@ -12,11 +12,10 @@ def getHTMLText(url):
     except:
         return ""
 
-def fillUnivList(ulist):
-    file = "/tmp/zuihaodaxuepaiming2016.html"
-    soup = BeautifulSoup(open(file), "html.parser")
+def fillUnivList(html,ulist):
+    #file = "/tmp/zuihaodaxuepaiming2016.html"
     #soup = BeautifulSoup(open(file), "html.parser")
-    #soup = BeautifulSoup(html)
+    soup = BeautifulSoup(html)
     for tr in soup.tbody.children:
         if isinstance(tr,bs4.element.Tag):
           tds = tr.contents
@@ -30,9 +29,9 @@ def printUnivList(ulist,num):
 
 def main():
     uinfo = []
-    #url ="http://www.zuihaodaxue.com/zuihaodaxuepaiming2016.html"
-    #getHTMLText(uinfo)
-    fillUnivList(uinfo)
+    url ="http://www.zuihaodaxue.com/zuihaodaxuepaiming2016.html"
+    html = getHTMLText(url)
+    fillUnivList(html,uinfo)
     printUnivList(uinfo,20)
 
 
